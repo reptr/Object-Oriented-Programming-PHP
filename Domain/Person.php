@@ -23,4 +23,12 @@ class Person
     {
         return $this->surname;
     }
+
+    // method utk override, jika ada yg sama pada parent & child, maka yg child akan jadi prioritas.
+    // parent = Person
+    // child = Job
+    public function sayHi()
+    {
+        return 'Hello '.$this->firstname;
+    }
 }

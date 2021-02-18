@@ -71,4 +71,12 @@ class Job extends Person //extend Class Person
     {
         return $this->email = $email;
     }
+
+    // method utk override, jika ada yg sama pada parent & child, maka yg child akan jadi prioritas.
+    // parent = Person
+    // child = Job
+    public function sayHi()
+    {
+        return 'Howdy '.$this->firstname.' '.parent::sayHi(); //parent::sayHi() ->ambil method sayHi pada parent (class Person)
+    }
 }
