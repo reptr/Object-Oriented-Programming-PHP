@@ -4,17 +4,22 @@ namespace Jobstore\Domain;
 
 // namespace Jobstore\Domain as Myjob;
 
-class Job
+class Job extends Person //extend Class Person
 {
     private static $lastId = 0;
 
     private $id;
-    private $firstname;
-    private $surname;
+
+    //ambil %firstname & $surname properties dari class person di parent::__construct()
+    // private $firstname;
+    // private $surname;
     private $email;
 
     public function __construct($id, $firstname, $surname, $email)
     {
+        // ambil properties pda construct dari class Person
+        parent::__construct($firstname, $surname);
+
         // $this->id = $id;
 
         if ($id == null) {
