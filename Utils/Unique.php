@@ -2,6 +2,8 @@
 
 namespace Interface\Utils;
 
+use Exception;
+
 // trair connot isntiate (__construct)
 trait Unique
 {
@@ -11,13 +13,23 @@ trait Unique
 
     public function setId(int $id)
     {
-        if ($id == null) {
-            $this->id = ++self::$lastId; //self::$lastId -> cara akses static properties
-        } else {
-            $this->id = $id;
-            if ($id > self::$lastId) {
-                self::$lastId = $id;
+        try {
+            if ($id < 1) {
+                throw new Exception('ID cannot be negative number !');
             }
+
+            if ($id == null) {
+                $this->id = ++self::$lastId; //self::$lastId -> cara akses static properties
+            } else {
+                $this->id = $id;
+                if ($id > self::$lastId) {
+                    self::$lastId = $id;
+                }
+            }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        } finally {
+            echo 'Done with try-catch';
         }
     }
 
