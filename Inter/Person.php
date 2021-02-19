@@ -2,10 +2,13 @@
 
 namespace Interface\Inter;
 
+use Interface\Utils\Unique;
+
 class Person
 {
-    private static $lastId = 0;
-    private $id;
+    use Unique; //use trait Unique
+    // private static $lastId = 0;
+    // private $id;
     private $email;
 
     protected $firstname;
@@ -24,14 +27,17 @@ class Person
 
         // $this->id = $id;
 
-        if ($id == null) {
-            $this->id = ++self::$lastId; //self::$lastId -> cara akses static properties
-        } else {
-            $this->id == $id;
-            if ($id > self::$lastId) {
-                self::$lastId = $id;
-            }
-        }
+        // if ($id == null) {
+        //     $this->id = ++self::$lastId; //self::$lastId -> cara akses static properties
+        // } else {
+        //     $this->id == $id;
+        //     if ($id > self::$lastId) {
+        //         self::$lastId = $id;
+        //     }
+        // }
+
+        // use trait
+        $this->setId($id);
 
         $this->firstname = $firstname;
         $this->surname = $surname;
