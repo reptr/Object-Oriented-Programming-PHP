@@ -6,4 +6,4 @@ Code yang saya buat dalam mempelajari dan memahami OOP PHP. Semoga bermanfaat ba
 
 ## LICENSE
 
-MIT LICENSE &copy; 2021 [reptr](https://github.com/reptr)
+MIT LICENSE &copy; 2021
